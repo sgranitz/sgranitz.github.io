@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hello Preston</title>
+<meta name="description" content="Hello Preston, you are really cool but your Dada wins and is the best at Fortnite!" />
+<meta property="og:title" content="Hello Preston" />
+<meta property="og:description" content="Dada wins. Facts." />
+<style>
+  :root{--bg:#0b0f1a;--fg:#e6eef8;--muted:#a6b3c6;}
+  html,body{height:100%;margin:0}
+  body{font-family:system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(1000px 600px at 50% -10%,#1b2340 0%,#0b0f1a 60%);color:var(--fg);display:grid;place-items:center}
+  .wrap{max-width:880px;padding:24px;text-align:center}
+  h1{font-size:clamp(32px,7vw,72px);margin:0 0 8px}
+  p{font-size:clamp(16px,2.6vw,24px);margin:0 0 20px;color:var(--muted)}
+  .gallery{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:10px}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px;width:140px;transition:transform .12s}
+  .card:hover{transform:translateY(-2px)}
+  img{width:100%;height:120px;object-fit:cover;border-radius:10px}
+  button{margin-top:18px;border:0;border-radius:12px;padding:10px 14px;background:#5b86ff;color:#081028;font-weight:700;cursor:pointer}
+  footer{margin-top:18px;font-size:12px;opacity:.75}
+</style>
+</head>
+<body>
+  <main class="wrap" role="main">
+    <h1>Hello Preston</h1>
+    <p>You are really cool, but your Dada wins and is the best at Fortnite.</p>
+
+    <div class="gallery" id="pics" aria-label="funny creatures">
+      <div class="card"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=800&q=60" alt="alien"><div>Alien</div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&q=60" alt="dragon"><div>Dragon</div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1504198266288-1659872e6590?w=800&q=60" alt="wizard"><div>Wizard</div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=60" alt="spaceship"><div>Spaceship</div></div>
+    </div>
+
+    <button id="button">Declare Dada Victory</button>
+    <footer>Made by Dada.</footer>
+  </main>
+
+<script>
+  // tiny confetti burst
+  const b=document.getElementById('button');
+  b.onclick=()=>{for(let i=0;i<80;i++){const s=document.createElement('span');Object.assign(s.style,{
+    position:'fixed',left:(innerWidth/2)+'px',top:(innerHeight/2)+'px',
+    width:'6px',height:'6px',background:'hsl('+(i*9%360)+',90%,60%)',
+    transform:`translate(${(Math.random()-0.5)*innerWidth}px, ${(Math.random()-0.5)*innerHeight}px)`,
+    transition:'transform 700ms ease-out, opacity 700ms',opacity:1,zIndex:9999,rotate:(Math.random()*360)+'deg'
+  });document.body.appendChild(s);setTimeout(()=>{s.style.opacity=0},10);setTimeout(()=>s.remove(),750)}};
+</script>
+</body>
+</html>
